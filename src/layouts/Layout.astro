@@ -28,10 +28,11 @@ const { description, title } = Astro.props
   <body class="relative text-black dark:text-white">
     <div
       class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      bg-[url('../../public/light.svg')]
+      dark:bg-[url('../../public/dark.svg')]"
     >
     </div>
+    <!-- <div class="bg-image"></div> -->
     <Header />
     <slot />
     <Footer />
@@ -109,6 +110,20 @@ const { description, title } = Astro.props
             border-radius: 9999px;
           }
         }
+      }
+
+      .bg-image {
+        /* Propiedades para la imagen de fondo */
+        background-image: url('../../public/dark.svg'); /* Ruta de la imagen de fondo */
+        background-size: cover; /* Ajusta la imagen de fondo para cubrir todo el contenedor */
+        background-position: center; /* Centra la imagen de fondo */
+        position: absolute; /* Coloca la imagen de fondo detrás de otros elementos */
+        top: 0; /* Alinea la imagen de fondo en la parte superior del contenedor */
+        bottom: 0; /* Alinea la imagen de fondo en la parte inferior del contenedor */
+        left: 0; /* Alinea la imagen de fondo en la parte izquierda del contenedor */
+        right: 0; /* Alinea la imagen de fondo en la parte derecha del contenedor */
+        z-index: -1; /* Coloca la imagen de fondo detrás de otros elementos */
+        opacity: 0.5; /* Ajusta la opacidad de la imagen de fondo según sea necesario */
       }
     </style>
   </body>

@@ -1,9 +1,9 @@
 ---
 import SunIcon from "./icons/Sun.astro"
 import MoonIcon from "./icons/Moon.astro"
-import SystemIcon from "./icons/System.astro"
 
-const THEMES = ["Light", "Dark", "System"]
+
+const THEMES = ["Light", "Dark"]
 ---
 
 <div class="relative ml-1 mr-1">
@@ -15,10 +15,6 @@ const THEMES = ["Light", "Dark", "System"]
     <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />
     <MoonIcon
       id="dark"
-      class="theme-toggle-icon absolute size-5 transition-all"
-    />
-    <SystemIcon
-      id="system"
       class="theme-toggle-icon absolute size-5 transition-all"
     />
   </button>
@@ -86,8 +82,7 @@ const THEMES = ["Light", "Dark", "System"]
 
     const themePreference = getThemePreference()
     const isDark =
-      themePreference === "dark" ||
-      (themePreference === "system" && matchMedia.matches)
+      themePreference === "dark"
 
     updateIcon(themePreference)
     document.documentElement.classList[isDark ? "add" : "remove"]("dark")
